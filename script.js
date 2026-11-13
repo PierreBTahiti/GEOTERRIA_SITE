@@ -249,10 +249,43 @@ const form = document.querySelector("#project-form");
 if (form instanceof HTMLFormElement) {
   const formError = form.querySelector("#form-error");
   const formNotice = form.querySelector("#form-notice");
+  const noDocuments = form.querySelector("#no-documents");
+  const attachmentsList = form.querySelector("#attachments-list");
+  const addAttachment = form.querySelector("#add-attachment");
+
+  const getAttachments = () => [...form.querySelectorAll('input[name="attachments"]')]
+    .filter((input) => input instanceof HTMLInputElement);
+
+  if (noDocuments instanceof HTMLInputElement && attachmentsList instanceof HTMLElement) {
+    noDocuments.addEventListener("change", () => {
+      getAttachments().forEach((input) => {
+        input.disabled = noDocuments.checked;
+        if (noDocuments.checked) input.value = "";
+      });
+      if (addAttachment instanceof HTMLButtonElement) addAttachment.disabled = noDocuments.checked;
+    });
+  }
+
+  if (addAttachment instanceof HTMLButtonElement && attachmentsList instanceof HTMLElement) {
+    addAttachment.addEventListener("click", () => {
+      const input = document.createElement("input");
+      input.type = "file";
+      input.name = "attachments";
+      input.accept = ".pdf,.jpg,.jpeg,.png";
+      attachmentsList.append(input);
+      input.focus();
+    });
+  }
 
   form.addEventListener("submit", (event) => {
     event.preventDefault();
     formNotice.hidden = true;
+    const hasAttachment = getAttachments().some((input) => input.files?.length);
+    if (!noDocuments?.checked && !hasAttachment) {
+      formError.textContent = "Ajoutez au moins un document ou cochez « Je n’ai pas de documents à joindre ».";
+      getAttachments()[0]?.focus();
+      return;
+    }
     const invalidControl = [...form.querySelectorAll("[required]")].find((control) => !control.checkValidity());
     if (invalidControl) {
       formError.textContent = invalidControl.type === "checkbox"

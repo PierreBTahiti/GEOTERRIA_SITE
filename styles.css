@@ -282,6 +282,13 @@ h1,h2,h3{font-family:"Manrope",var(--sans);font-weight:500;letter-spacing:-.045e
 .form-row textarea{resize:vertical;min-height:84px}
 .other-detail{margin-top:7px}
 .other-detail[hidden]{display:none}
+.attachments-list{display:grid;gap:7px}
+.add-attachment{margin-top:8px;padding:0;border:0;background:transparent;color:var(--navy);font-size:9px;font-weight:600;cursor:pointer}
+.add-attachment:hover{text-decoration:underline;color:var(--copper)}
+.add-attachment:disabled{opacity:.45;cursor:not-allowed;text-decoration:none}
+.document-exception{display:flex;align-items:flex-start;gap:8px;margin-top:8px;color:#687278;font-size:9px;line-height:1.6;cursor:pointer}
+.document-exception input{margin:3px 0 0;accent-color:var(--navy)}
+.field-help{display:block;margin-top:6px;color:#858b8c;font-size:9px;line-height:1.5}
 .form-row-message{align-items:start}
 .form-row-message .field-label{margin-top:12px}
 .field-label span{font-weight:400;color:#858b8c}
