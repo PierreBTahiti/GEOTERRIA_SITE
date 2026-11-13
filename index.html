@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#172d43">
+  <title>GéoTerria — Bureau d'Études géotechniques</title>
+  <meta name="description" content="Bureau d'Études géotechniques : études de sol, fondations, hydrogéologie, sites et sols pollués. Des explications claires, des recommandations adaptées à votre projet.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="GéoTerria — Comprendre le sol. Sécuriser vos projets.">
+  <meta property="og:description" content="Études géotechniques indépendantes et adaptées à vos projets dans le Var.">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:image" content="assets\images\LOGO Geoterria cropped.svg">
+  <link rel="icon" type="image/svg+xml" href="assets\images\LOGO Geoterria cropped.svg">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+    body, body button, body input, body select, body textarea { font-family: "IBM Plex Sans", sans-serif !important; }
+    body h1, body h2, body h3 { font-family: "Fraunces", serif !important; }
+    body .eyebrow, body .expertise-code, body .mini-mark, body .reference-number,
+    body .investigation-index, body .visual-label, body .map-caption,
+    body .office-edit-note code, body .method-steps article > span,
+    body .situation-option > span, body .commitments > div > span,
+    body .hero-stamp, body .image-credit {
+      font-family: "IBM Plex Mono", monospace !important;
+    }
+    body .situation-explorer {
+    align-items: stretch;
+    gap: clamp(1rem, 3vw, 2.5rem);
+    }
+
+    body .situation-options {
+    display: grid;
+    grid-template-rows: repeat(4, minmax(0, 1fr));
+    gap: 0.5rem;
+    }
+
+    body .situation-option {
+    min-height: 4rem;
+    padding: 0.9rem 1rem;
+    font-size: clamp(1rem, 1.3vw, 1.2rem);
+    }
+
+    body .footer-brand p {
+    font-size: 0.9rem;
+    }
+
+    body .hero-photo::before,
+    body .hero-photo::after {
+      display: none !important;
+      content: none !important;
+    }
+
+    body .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: clamp(1rem, 1.5vw, 1.5rem);
+      align-items: start;
+    }
+
+    body .gallery-grid > figure {
+      margin: 0;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      grid-column: span 1;
+    }
+
+    body .gallery-grid .gallery-image {
+      aspect-ratio: auto !important;
+      height: auto !important;
+      background: transparent !important;
+    }
+
+    body .gallery-grid .gallery-image img {
+      display: block;
+      width: 100%;
+      height: auto !important;
+      object-fit: initial !important;
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "GéoTerria",
+    "description": "Bureau d'études géotechniques : ingénierie des sols et des fondations, hydrogéologie, études de sites et sols pollués.",
+    "areaServed": {"@type": "AdministrativeArea", "name": "Var, France"},
+    "knowsAbout": ["Géotechnique", "Études de sol", "NF P 94-500", "Hydrogéologie", "Fondations"],
+    "availableLanguage": "French"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type": "Question", "name": "Une étude de sol est-elle obligatoire pour vendre un terrain ?", "acceptedAnswer": {"@type": "Answer", "text": "Dans certains secteurs exposés au retrait-gonflement des argiles, la loi ELAN impose une étude géotechnique préalable lors de la vente d’un terrain constructible non bâti. Le périmètre et les obligations dépendent de la situation et des textes en vigueur ; vérifiez le zonage officiel et demandez conseil à un professionnel."}},
+      {"@type": "Question", "name": "Quelle est la différence entre une étude G1 et une étude G2 ?", "acceptedAnswer": {"@type": "Answer", "text": "La G1 caractérise les principes généraux d’adaptation au sol, notamment à l’échelle d’un terrain. La G2 accompagne la conception d’un projet défini et fournit des recommandations de conception géotechnique. La mission précise dépend du projet et de la norme NF P 94-500."}},
+      {"@type": "Question", "name": "Combien coûte une étude de sol et sous quel délai ?", "acceptedAnswer": {"@type": "Answer", "text": "Le prix et le délai dépendent du projet, de l’accès, du contexte géologique et des investigations nécessaires. Un devis précise le périmètre, les prestations et les délais après examen des informations disponibles."}},
+      {"@type": "Question", "name": "Comment se déroulent les sondages sur place ?", "acceptedAnswer": {"@type": "Answer", "text": "Après préparation et vérification des accès et réseaux, une équipe réalise les investigations prévues au programme. Les sondages peuvent occasionner du bruit et des traces ponctuelles, ensuite rebouchées ou sécurisées selon la prestation."}},
+      {"@type": "Question", "name": "Que faire si des fissures apparaissent après une sécheresse ?", "acceptedAnswer": {"@type": "Answer", "text": "Photographiez et datez les désordres, surveillez leur évolution et faites examiner le bâtiment. Un diagnostic géotechnique peut contribuer à rechercher les causes du mouvement, sans remplacer un diagnostic structurel ni une expertise d’assurance."}},
+      {"@type": "Question", "name": "Réalisez-vous les travaux de fondations ou de terrassement ?", "acceptedAnswer": {"@type": "Answer", "text": "Non. GEOTERRIA est un bureau d’études indépendant : il étudie le sol et formule des recommandations, mais ne réalise ni travaux de fondations ni terrassements. Cette séparation permet de distinguer le conseil de la réalisation."}}
+    ]
+  }
+  </script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#accueil" aria-label="GéoTerria, accueil">
+        <img src="assets/images/LOGO%20Geoterria%20cropped.svg" alt="" class="brand-mark">
+        <img src="assets/images/LOGO%20Geoterria%20text.svg" alt="GéoTerria — Bureau d’études géotechniques" class="brand-wordmark">
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+        <span></span><span></span>
+      </button>
+      <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+        <a href="#profils">Votre situation</a><a href="#expertises">Expertises</a><a href="#projets">Investigations</a>
+        <a href="#terrains">Agences</a><a href="#reperes">Repères</a><a href="#faq">FAQ</a>
+        <a class="nav-cta" href="#contact">Parler de votre projet <span aria-hidden="true">↗</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <section class="hero" id="accueil">
+      <div class="hero-photo" role="img" aria-label="Grutage d’un atelier de forage sur un site en pente, photo GEOTERRIA"></div>
+      <div class="hero-content">
+        <p class="eyebrow eyebrow-light"><span class="live-dot"></span> Ingénierie des sols · Var & alentours</p>
+        <h1>Comprendre le sol.<br><em>Sécuriser vos projets.</em></h1>
+        <p class="hero-lead">Geoterria met son expertise en géotechnique, hydrogéologie et sites et sols pollués au service de vos projets, pour comprendre le sous-sol et éclairer vos décisions.</p>
+        <div class="hero-actions">
+          <a class="button button-copper" href="#contact">Parler de votre projet <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+      <a class="hero-scroll" href="#profils" aria-label="Découvrir votre situation">↓ <span>Défiler</span></a>
+    </section>
+
+    <section class="intro-strip" aria-label="Domaines d’intervention">
+      <div class="container intro-strip-inner">
+        <span>Un bureau d’études indépendant</span><i></i>
+        <span>Ingénierie des sols et des fondations</span><i></i>
+        <span>Hydrogéologie</span><i></i>
+        <span>Études sites et sols pollués</span>
+      </div>
+    </section>
+
+    <section class="section situations-section" id="profils">
+      <div class="container">
+        <div class="section-heading heading-split">
+          <div><p class="eyebrow">01 — Votre situation</p><h2>Par où commencer ?</h2><p class="section-intro">Que vous soyez un particulier, une entreprise, un promoteur, un maître d'œuvre ou une collectivité, nous avons des réponses pour vous.</p></div>
+        </div>
+        <div class="situation-explorer">
+          <div class="situation-options" role="group" aria-label="Choisir une situation">
+            <button class="situation-option is-active" type="button" aria-pressed="true" data-situation="terrain"><span>01</span> Je vends un terrain <b aria-hidden="true">↗</b></button>
+            <button class="situation-option" type="button" aria-pressed="false" data-situation="hydrogeologie"><span>02</span> J’ai un problème d’eau <b aria-hidden="true">↗</b></button>
+            <button class="situation-option" type="button" aria-pressed="false" data-situation="pollution"><span>03</span> Mon terrain est potentiellement pollué <b aria-hidden="true">↗</b></button>
+            <button class="situation-option" type="button" aria-pressed="false" data-situation="construction"><span>04</span> Je construis ou j’agrandis <b aria-hidden="true">↗</b></button>
+            <button class="situation-option" type="button" aria-pressed="false" data-situation="desordres"><span>05</span> Je constate des fissures <b aria-hidden="true">↗</b></button>
+            <button class="situation-option" type="button" aria-pressed="false" data-situation="professionnel"><span>06</span> Je suis professionnel du bâtiment <b aria-hidden="true">↗</b></button>
+          </div>
+          <article class="situation-explanation" aria-live="polite">
+            <p class="eyebrow" id="situation-kicker">Mission type G1</p>
+            <h3 id="situation-title">Terrain à bâtir : l'étude G1 de la loi ÉLAN</h3>
+            <p id="situation-description">La réponse dépend notamment de la commune, du terrain et des règles applicables. Une étude préalable peut aider à transmettre à l’acquéreur des informations utiles sur le sol.</p>
+            <a class="text-link" href="#contact">Parler de votre projet <span aria-hidden="true">↗</span></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="reassurance-section">
+      <div class="container reassurance-layout"><div><p class="eyebrow eyebrow-light">Nos engagements</p><h2>De la clarté,<br>à chaque étape.</h2></div><div class="commitments"><div><span>01</span><p><strong>Réactivité devis sous 1 semaine maximum</strong><br>Confirmation à valider selon vos disponibilités.</p></div><div><span>02</span><p><strong>Respect des délais d’intervention</strong><br>Planning confirmé avec vous avant le déplacement.</p></div><div><span>03</span><p><strong>Rapport clair et pédagogique</strong><br>Les conclusions, recommandations et limites sont distinguées.</p></div></div></div>
+    </section>
+
+    <section class="section expertise-section" id="expertises">
+      <div class="container">
+        <!-- Remplacer le contenu de .expertise-section .container -->
+        <div class="section-heading">
+          <p class="eyebrow">02 — Expertises</p>
+          <h2>Des compétences<br><em>au service du terrain.</em></h2>
+          <p class="section-intro">De l'étude des sols à la compréhension des eaux souterraines et des pollutions, une approche adaptée aux contraintes de chaque projet.</p>
+        </div>
+
+        <div class="expertise-grid">
+          <article class="expertise-card">
+            <img class="expertise-photo" src="assets/images/EMCI_sous_sol.jpeg" alt="EMCI en sous sol pour étude fondation" loading="lazy">
+
+            <span class="mini-mark">01</span>
+            <h3>Sols et fondations</h3>
+            <p>Étudier le comportement des sols pour adapter les ouvrages aux caractéristiques du terrain et sécuriser les choix de conception, de réalisation et de dimensionnement.</p>
+            <span class="mission-tags-label">Missions géotechniques</span>
+            <ul class="mission-tags" aria-label="Missions géotechniques">
+              <li><a href="missions-geotechniques/#g1">G1</a></li>
+              <li><a href="missions-geotechniques/#g2">G2</a></li>
+              <li><a href="missions-geotechniques/#g3g4">G3/G4</a></li>
+              <li><a href="missions-geotechniques/#g5">G5</a></li>
+            </ul>
+            <a class="expertise-more" href="expertises-geotechniques/#ingenierie">Comprendre cette expertise <span aria-hidden="true">↗</span></a>
+          </article>
+
+          <article class="expertise-card">
+            <img class="expertise-photo" src="assets/images/fieldwork-cores.jpg" alt="carrotes de sol" loading="lazy">
+
+            <span class="mini-mark">02</span>
+            <h3>Compréhension géologique du sous-sol</h3>
+            <p>Identifier et interpréter les formations géologiques pour comprendre la structure du sous-sol et anticiper les contraintes susceptibles d'affecter un projet.</p>
+            <a class="expertise-more" href="expertises-geotechniques/#geologie">Découvrir cette expertise <span aria-hidden="true">↗</span></a>
+          </article>
+
+          
+
+          <article class="expertise-card">
+            <img class="expertise-photo" src="assets/images/site_naturel.jpg" alt="Site naturel, forage" loading="lazy">
+
+            <span class="mini-mark">03</span>
+            <h3>Sondages et forages</h3>
+            <p>Mettre en œuvre des moyens de reconnaissance adaptés à la nature des terrains, aux profondeurs recherchées et aux contraintes d'intervention.</p>
+            <a class="expertise-more" href="expertises-geotechniques/#sondages">Découvrir cette expertise <span aria-hidden="true">↗</span></a>
+          </article>
+
+          <article class="expertise-card">
+            <img class="expertise-photo" src="assets/images/image_laboratoire.jpg" alt="Essais géotechniques réalisés au laboratoire interne de l’agence GEOTERRIA de Toulouse" loading="lazy">
+            <span class="mini-mark">04</span>
+            <h3>Laboratoire géotechnique</h3>
+            <p>Caractériser les sols et matériaux prélevés afin de déterminer leurs propriétés physiques, mécaniques et leur comportement.</p>
+            <a class="expertise-more" href="expertises-geotechniques/#essais">Découvrir cette expertise <span aria-hidden="true">↗</span></a>
+          </article>
+        <article class="expertise-card">
+          <img class="expertise-photo" src="assets/images/hydrologie.jpg" alt="Reconnaissance hydrogéologique et observation de l’eau dans les sols" loading="lazy">
+          <span class="mini-mark">05</span>
+          <h3>Hydrogéologie</h3>
+          <p>Étudier les eaux souterraines et leurs interactions avec les terrains, les terrassements et les ouvrages, afin d'anticiper les contraintes liées à leur présence et à leurs variations.</p>
+          <a class="expertise-more" href="expertises-geotechniques/#hydrogeologie">Découvrir cette expertise <span aria-hidden="true">↗</span></a>
+        </article>
+        <article class="expertise-card">
+          <img class="expertise-photo" src="assets/images/ssp.jpg" alt="Étude et prélèvement de sols pour un diagnostic de pollution" loading="lazy">
+          <span class="mini-mark">06</span>
+          <h3>Sites et sols pollués (SSP)</h3>
+          <p>Identifier, caractériser et évaluer les pollutions potentielles des sols et des eaux souterraines pour accompagner les projets d'aménagement et de réhabilitation.</p>
+          <a class="expertise-more" href="expertises-geotechniques/#ssp">Découvrir cette expertise <span aria-hidden="true">↗</span></a>
+        </article>
+        </div>
+        <div class="expertise-foot"><span>Deux repères pour avancer dans votre projet</span><a class="text-link" href="expertises-geotechniques/">Voir nos tâches par expertise <span aria-hidden="true">↗</span></a><a class="text-link" href="missions-geotechniques/">Comprendre les missions G1 à G5 <span aria-hidden="true">↗</span></a></div>
+      </div>
+    </section>
+
+    
+
+    <section class="section investigations-section" id="projets">
+      <div class="container">
+        <div class="section-heading heading-split"><div><p class="eyebrow">03 — Investigations</p><h2>Des reconnaissances<br><em>adaptées au terrain.</em></h2></div><p>Chaque méthode répond à un objectif précis. Le programme retenu dépend du projet, du sol et des accès disponibles.</p></div>
+        <div class="investigation-grid">
+          <article class="investigation-card"><div class="investigation-visual"><svg viewBox="0 0 220 140" role="img" aria-label="Schéma en coupe d’un piézomètre dans le sol"><path class="ground-line" d="M12 41H208"/><path class="soil-layer" d="M12 42H208V128H12Z"/><path class="soil-strata" d="M12 76c44-12 94 13 196-2M12 103c58 14 114-12 196 4"/><path class="device" d="M104 21v95m-9-67h18M99 77h10m-10 8h10m-10 8h10"/><path class="water" d="M107 74v31"/><path class="device-cap" d="M98 20h12v8H98z"/><path class="arrow-line" d="M112 106h37"/><path class="arrow-head" d="m149 102 8 4-8 4"/><text x="161" y="109">niveau d’eau</text></svg><span class="visual-label">SCHÉMA ILLUSTRATIF</span></div><div class="investigation-copy"><span class="investigation-index">01</span><h3>Pose de piézomètre</h3><p>Suivre le niveau d’eau souterraine à l’endroit et sur la durée définis par l’étude.</p></div></article>
+          <article class="investigation-card"><div class="investigation-visual"><svg viewBox="0 0 220 140" role="img" aria-label="Schéma illustratif d’un essai pressiométrique"><path class="ground-line" d="M12 38H208"/><path class="soil-layer" d="M12 39H208V128H12Z"/><path class="soil-strata" d="M12 70c55-14 112 13 196-4M12 100c54 12 111-14 196 2"/><path class="device" d="M106 20v92"/><path class="probe" d="M101 62q5-10 10 0v31q-5 10-10 0z"/><path class="arrow-line" d="M83 70h-22m22 13H56m27 13H61m76-26h22m-22 13h27m-27 13h22"/><path class="arrow-head" d="m61 66-7 4 7 4m-5 9-7 4 7 4m10 5-7 4 7 4m62-30 7 4-7 4m5 5 7 4-7 4m-5 5 7 4-7 4"/></svg><span class="visual-label">SCHÉMA ILLUSTRATIF</span></div><div class="investigation-copy"><span class="investigation-index">02</span><h3>Essai pressiométrique</h3><p>Mesurer la réponse du terrain à l’expansion d’une sonde dans un forage.</p></div></article>
+          <article class="investigation-card"><div class="investigation-visual"><svg viewBox="0 0 220 140" role="img" aria-label="Schéma illustratif d’un essai au pénétromètre"><path class="ground-line" d="M12 43H208"/><path class="soil-layer" d="M12 44H208V128H12Z"/><path class="soil-strata" d="M12 76c48-9 101 12 196-3M12 103c60 14 119-13 196 2"/><path class="device" d="M110 18v86"/><path class="probe" d="m103 104 7 12 7-12z"/><path class="device-cap" d="M97 19h26v12H97z"/><path class="arrow-line" d="M110 12V6"/><path class="arrow-head" d="m106 10 4-6 4 6"/><text x="128" y="25">enfoncement</text></svg><span class="visual-label">SCHÉMA ILLUSTRATIF</span></div><div class="investigation-copy"><span class="investigation-index">03</span><h3>Essai au pénétromètre</h3><p>Évaluer la résistance du sol lors de l’enfoncement d’une pointe instrumentée.</p></div></article>
+          <article class="investigation-card"><div class="investigation-visual"><svg viewBox="0 0 220 140" role="img" aria-label="Schéma illustratif d’une reconnaissance en fouille de fondation"><path class="ground-line" d="M12 34H208"/><path class="soil-layer" d="M12 35H208V128H12Z"/><path class="soil-strata" d="M12 72c58-13 108 12 196-4M12 103c51 12 115-14 196 2"/><path class="excavation" d="m67 35 15 58h56l15-58"/><path class="foundation" d="M80 86h60v14H80z"/><path class="foundation" d="M72 100h76v7H72z"/><path class="arrow-line" d="M102 51h20"/><path class="arrow-head" d="m102 47-8 4 8 4m20-8 8 4-8 4"/><text x="89" y="70">fondation</text></svg><span class="visual-label">SCHÉMA ILLUSTRATIF</span></div><div class="investigation-copy"><span class="investigation-index">04</span><h3>Reconnaissance de fondations</h3><p>Observer une fondation existante dans une fouille ponctuelle définie et sécurisée.</p></div></article>
+          <article class="investigation-card"><div class="investigation-visual"><svg viewBox="0 0 220 140" role="img" aria-label="Schéma illustratif d’un carottage géotechnique"><path class="ground-line" d="M12 42H208"/><path class="soil-layer" d="M12 43H208V128H12Z"/><path class="soil-strata" d="M12 73c53-13 111 13 196-4M12 101c52 13 117-15 196 2"/><path class="device" d="M103 18h15v48h-15z"/><path class="sample" d="M107 66h7v53h-7z"/><path class="sample-line" d="M108 74h5m-5 9h5m-5 9h5m-5 9h5m-5 9h5"/><path class="arrow-line" d="M96 35v23"/><path class="arrow-head" d="m92 54 4 8 4-8"/><text x="130" y="31">carotte</text></svg><span class="visual-label">SCHÉMA ILLUSTRATIF</span></div><div class="investigation-copy"><span class="investigation-index">05</span><h3>Carottage</h3><p>Prélever une carotte pour examiner la succession et la nature des terrains traversés.</p></div></article>
+          <article class="investigation-card"><div class="investigation-visual"><svg viewBox="0 0 220 140" role="img" aria-label="Schéma illustratif d’un diagnostic de pollution"><path class="ground-line" d="M12 42H208"/><path class="soil-layer" d="M12 43H208V128H12Z"/><path class="soil-strata" d="M12 74c48-12 108 14 196-3M12 103c57 13 113-14 196 2"/><path class="probe" d="M103 20h14v76h-14z"/><path class="sample" d="M105 75h10v37h-10z"/><circle class="water" cx="158" cy="85" r="12"/><path class="arrow-line" d="M158 67v-8"/><path class="arrow-head" d="m154 62 4-7 4 7"/><text x="136" y="112">prélèvement</text></svg><span class="visual-label">DIAGNOSTIC</span></div><div class="investigation-copy"><span class="investigation-index">06</span><h3>Diagnostic pollution</h3><p>Caractériser les sols, les remblais et les sources potentielles de pollution selon l’usage du site.</p></div></article>
+          <article class="investigation-card"><div class="investigation-visual"><svg viewBox="0 0 220 140" role="img" aria-label="Schéma illustratif d’un essai de pompage"><path class="ground-line" d="M12 42H208"/><path class="soil-layer" d="M12 43H208V128H12Z"/><path class="soil-strata" d="M12 74c48-12 108 14 196-3M12 103c57 13 113-14 196 2"/><path class="device" d="M103 18v94"/><path class="device-cap" d="M96 18h14v9H96z"/><path class="water" d="M60 91c20-11 35 11 53 0s32-11 52 0"/><path class="arrow-line" d="M111 66v-22"/><path class="arrow-head" d="m107 48 4-7 4 7"/><text x="135" y="52">débit</text></svg><span class="visual-label">EAU SOUTERRAINE</span></div><div class="investigation-copy"><span class="investigation-index">07</span><h3>Essai de pompage</h3><p>Mesurer les débits, les niveaux et l’influence d’un pompage sur la nappe et les ouvrages voisins.</p></div></article>
+          <article class="investigation-card"><div class="investigation-visual"><svg viewBox="0 0 220 140" role="img" aria-label="Schéma illustratif d’un diagnostic pour chantier"><path class="ground-line" d="M12 42H208"/><path class="soil-layer" d="M12 43H208V128H12Z"/><path class="soil-strata" d="M12 74c48-12 108 14 196-3M12 103c57 13 113-14 196 2"/><path class="foundation" d="M55 91h110v17H55z"/><path class="device-cap" d="M91 59h38v8H91z"/><path class="device" d="M110 67v24"/><path class="arrow-line" d="M39 66h32m-32 0 7-5m-7 5 7 5m142-5h-32m32 0-7-5m7 5-7 5"/><text x="77" y="122">ajustement</text></svg><span class="visual-label">CHANTIER</span></div><div class="investigation-copy"><span class="investigation-index">08</span><h3>Diagnostic et résolution de chantier</h3><p>Analyser un imprévu géotechnique et proposer rapidement des adaptations documentées pour la suite des travaux.</p></div></article>
+        </div>
+        <p class="small-note">Schémas pédagogiques non contractuels. Les équipements, les profondeurs et le programme des reconnaissances sont définis pour chaque mission.</p>
+      </div>
+    </section>
+
+    <section class="section offices-section" id="terrains">
+      <div class="container">
+        <div class="section-heading heading-split"><div><p class="eyebrow">04 — Nos agences</p><h2>Trois agences.<br><em>Un même bureau d’études.</em></h2></div><p>Sélectionnez une agence pour afficher son secteur d’intervention.</p></div>
+        <div class="office-layout">
+          <div class="office-map">
+            <div id="leaflet-map" role="img" aria-label="Carte routière situant les agences GEOTERRIA à Toulon, Aix-en-Provence et Toulouse"></div>
+            <div class="office-map-legend" aria-label="Choisir une agence">
+              <button class="office-pin is-active" type="button" aria-label="Afficher l’agence de Toulon" aria-pressed="true" data-office="la-garde"><span></span>Toulon</button>
+              <button class="office-pin" type="button" aria-label="Afficher l’agence d'Aix-en-Provence" aria-pressed="false" data-office="eguilles"><span></span>Aix-en-Provence</button>
+              <button class="office-pin" type="button" aria-label="Afficher l’agence de Toulouse" aria-pressed="false" data-office="toulouse"><span></span>Toulouse</button>
+            </div>
+            <span class="map-caption">Carte © OpenStreetMap · Localisations génériques</span>
+          </div>
+          <div class="office-details" aria-live="polite">
+            <p class="eyebrow" id="office-region">VAR · PROVENCE-ALPES-CÔTE D’AZUR</p>
+            <h3 id="office-name">Toulon</h3>
+            <dl><div><dt>Adresse</dt><dd id="office-address">42 Av. Irène et Jean Frédéric Joliot Curie 83130 La Garde, France</dd></div><div><dt>Secteur</dt><dd id="office-area">Toulon, Nice, Monaco, littoral méditerranéen et Corse</dd></div><div><dt>Téléphone</dt><dd id="office-tel">04 94 12 34 56</dd></div><div><dt>E-mail</dt><dd id="office-email">contact@geoterria.fr</dd></div></dl>
+            <a class="text-link" href="#contact">Parler de votre projet <span aria-hidden="true">↗</span></a>
+            </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section gallery-section" aria-labelledby="gallery-title">
+      <div class="container">
+        <div class="section-heading heading-split"><div><p class="eyebrow">05 — Nos chantiers · regards de terrain</p><h2 id="gallery-title">Le sol, en conditions réelles.</h2></div><p>Quelques photographies des contextes d’intervention et des moyens de reconnaissance.</p></div>
+ <div class="gallery-grid">
+ <figure><div class="gallery-image"><img src="assets/images/Image_linkedin_2.png" alt="chantier brumeux" loading="lazy"></div><figcaption><strong>Chantier brumeux</strong><span>Reconnaissance dans un contexte de construction dense</span></figcaption></figure>
+ <figure><div class="gallery-image"><img src="assets/images/GRUTAGE_3.jpg" alt="Grutage de matériel de forage sur un chantier" loading="lazy"></div><figcaption><strong>Grutage</strong><span>Transport et mise en place du matériel sur chantier</span></figcaption></figure>
+ <figure><div class="gallery-image"><img src="assets/images/chantier_eau_port.png" alt="Machine de forage sur une plateforme au-dessus de l’eau en environnement portuaire" loading="lazy"></div><figcaption><strong>Forage en zone portuaire</strong><span>Intervention au-dessus de l’eau avec accès spécifique</span></figcaption></figure>
+ <figure><div class="gallery-image"><img src="assets/images/Image_LinkedIn_1.png" alt="Forage géotechnique sur un terrain naturel" loading="lazy"></div><figcaption><strong>Terrain naturel</strong><span>Investigation en site ouvert pour caractériser le sol</span></figcaption></figure>
+ 
+ </div>
+ <div class="gallery-more"><p>Ces quelques vues donnent un aperçu de nos interventions.</p><a class="text-link" href="expertises-geotechniques/#chantiers">Voir tous nos chantiers <span aria-hidden="true">↗</span></a></div>
+      </div>
+    </section>
+
+    
+
+    <section class="section references-section" id="reperes">
+      <div class="container">
+        <div class="section-heading heading-split"><div>
+          <p class="eyebrow">06 — Repères techniques</p>
+          <h2>Nos preuves de rigueur<br></h2>
+        </div>
+          <p>Des textes normatifs aux bases publiques, les sources et leurs limites méritent d’être explicites. Une carte ou une donnée régionale ne remplace pas une reconnaissance de terrain.</p>
+        </div>
+        <div class="reference-grid">
+          <article class="reference-card"><span class="reference-number">A / NORME</span><h3>NF P 94-500</h3><p>Définit la classification et l'enchaînement des missions d'ingénierie géotechnique, de l'étude préalable au diagnostic. La lettre G seule ne suffit pas : objectifs, phase et limites doivent être précisés.</p><a href="missions-geotechniques/">Lire les repères sur les missions <span>↗</span></a></article>
+          <article class="reference-card"><span class="reference-number">B / CALCUL</span><h3>Eurocode 7</h3><p>Cadre européen pour le calcul géotechnique, à articuler avec les annexes nationales, les règles applicables au projet et les autres normes pertinentes.</p><a href="#contact">Parler d'un projet de conception <span>↗</span></a></article>
+          <article class="reference-card"><span class="reference-number">C / DONNÉES OUVERTES</span><h3>BRGM & données publiques</h3><p>Infoterre, la Banque du sous-sol (BSS), Géorisques ou encore cartes.gouv aident à documenter un contexte. Leur contenu est indicatif et ne caractérise pas à lui seul une parcelle.</p><a href="https://infoterre.brgm.fr/" target="_blank" rel="noopener noreferrer">Infoterre · BRGM <span>↗</span></a><a href="https://www.georisques.gouv.fr/" target="_blank" rel="noopener noreferrer">Géorisques <span>↗</span></a><a href="https://cartes.gouv.fr/" target="_blank" rel="noopener noreferrer">cartes.gouv.fr <span>↗</span></a></article>
+          <article class="reference-card"><span class="reference-number">D / ASSURANCES PROFESSIONNELLES</span><h3>Assurances RC & décennale</h3><p>Les assurances de responsabilité civile professionnelle (RC) et décennale protègent le client face aux conséquences d'une erreur ou d'un défaut de conception. Elles permettent de maîtriser les risques et la capacité à couvrir les conséquences d'une mission d'ingénierie.</p><a href="missions-geotechniques/">Lire les repères sur les missions <span>↗</span></a></article>
+          <img class="opqibi-logo" src="assets/images/OPQIBI.png" alt="Logo OPQIBI" loading="lazy">
+        </div>
+        <div class="credentials-grid">
+          <article><span class="credential-icon">＋</span><div><p class="eyebrow">Retours vérifiés</p><h3>[Premiers avis clients à intégrer]</h3><p>Aucun avis n’est affiché sans source et autorisation. Lien Google Business : <a href="#contact">[lien à renseigner]</a>.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section faq-section" id="faq">
+      <div class="container faq-layout"><div class="faq-intro"><p class="eyebrow">07 — Questions fréquentes</p><h2>Des réponses<br>pour avancer.</h2><p>Une première lecture pour y voir plus clair. Le contexte de votre terrain et les règles en vigueur restent déterminants.</p><a class="text-link" href="loi-elan/">Tout savoir sur l’étude préalable ELAN <span>↗</span></a></div><div class="faq-list">
+        <details><summary>Une étude de sol est-elle obligatoire pour vendre un terrain ?<span>+</span></summary><p>Dans les zones concernées par le retrait-gonflement des argiles, la loi ELAN prévoit une étude géotechnique préalable pour la vente de certains terrains constructibles non bâtis. L’obligation varie selon le zonage, la nature du bien et les textes applicables : vérifiez la situation exacte sur Géorisques et auprès des interlocuteurs compétents.</p></details>
+        <details><summary>Quelle différence entre une G1 et une G2 ?<span>+</span></summary><p>Une G1 étudie les principes généraux d’adaptation d’un site. Une G2 porte sur un projet défini et accompagne sa conception géotechnique à différentes phases. Elles ne sont pas interchangeables et leur contenu doit être adapté à l’opération.</p></details>
+        <details><summary>Combien coûte une étude et quels sont les délais moyens ?<span>+</span></summary><p>Il n’existe pas de tarif ni de délai universel : surface, accès, géologie, programme d’investigations et complexité influent sur les deux. Après examen des éléments disponibles, un devis précise le périmètre et le calendrier proposés.</p></details>
+        <details><summary>Comment se déroulent les sondages sur place ?<span>+</span></summary><p>Les investigations sont préparées selon l’accès, les réseaux, la sécurité et le programme prévu. Les équipements varient selon le site et les essais retenus ; bruit et marques ponctuelles peuvent être à prévoir. Les modalités de remise en état sont à préciser dans le devis.</p></details>
+        <details><summary>Des fissures sont apparues après une sécheresse : que faire ?<span>+</span></summary><p>Documentez leur emplacement et leur évolution et sollicitez un avis adapté. Un diagnostic géotechnique peut explorer le rôle du sol et de l’eau, mais ne remplace pas l’examen structurel, les démarches auprès de l’assureur ou le diagnostic d’un expert.</p></details>
+        <details><summary>Réalisez-vous les travaux de fondations ou de terrassement ?<span>+</span></summary><p>Non. GEOTERRIA est un bureau d’études : nous étudions le sol et formulons des recommandations, mais ne réalisons ni les travaux de fondations ni ceux de terrassement. Cette indépendance distingue le conseil technique de l’entreprise chargée des travaux.</p></details>
+      </div></div>
+    </section>
+
+    <section class="contact-section" id="contact">
+      <div class="container contact-layout">
+        <div class="contact-intro"><p class="eyebrow eyebrow-light">08 — Parlons de votre projet</p><h2>Quelques repères.<br><em>Un premier échange.</em></h2><p>Quelques listes pour préciser votre demande, puis un espace libre pour ajouter les détails qui comptent.</p><div class="contact-detail"><span>Nous joindre autrement</span><a href="tel:+33494278740"><strong>+33 (0)4 94 27 87 40</strong></a><a href="mailto:contact@geoterria.com"><strong>contact@geoterria.com</strong></a></div></div>
+        <form class="project-form" id="project-form" novalidate>
+          <div class="demo-alert"><strong>Prototype de formulaire</strong><span>Ce formulaire ne transmet ni ne conserve aucune donnée. Un serveur et les mentions RGPD définitives sont nécessaires avant sa mise en production.</span></div>
+          <div class="form-rows">
+            <div class="form-row"><label class="field-label" for="profile">Votre profil <b>*</b></label><div class="field-control"><select id="profile" name="profile" required data-other-target="profile-other"><option value="">Sélectionner</option><option>Particulier</option><option>Architecte</option><option>Constructeur</option><option>Collectivité / Industrie</option><option value="other">Autre</option></select><div class="other-detail" id="profile-other" hidden><label class="visually-hidden" for="profile-other-value">Précisez votre profil</label><input id="profile-other-value" name="profile_other" type="text" placeholder="Précisez votre profil" maxlength="120"></div></div></div>
+            <div class="form-row"><label class="field-label" for="need">Votre besoin <b>*</b></label><div class="field-control"><select id="need" name="need" required data-other-target="need-other"><option value="">Sélectionner</option><option>Vente de terrain</option><option>Construction neuve</option><option>Extension / piscine</option><option>Sinistre / fissures</option><option value="other">Autre</option></select><div class="other-detail" id="need-other" hidden><label class="visually-hidden" for="need-other-value">Précisez votre besoin</label><input id="need-other-value" name="need_other" type="text" placeholder="Précisez votre besoin" maxlength="200"></div></div></div>
+            <div class="form-row"><label class="field-label" for="progress-status">Avancement <b>*</b></label><div class="field-control"><select id="progress-status" name="status" required data-other-target="status-other"><option value="">Sélectionner</option><option>Terrain repéré</option><option>Conception en cours</option><option>Permis déposé</option><option>Chantier en cours</option><option>Désordres constatés</option><option value="other">Autre</option></select><div class="other-detail" id="status-other" hidden><label class="visually-hidden" for="status-other-value">Précisez l’avancement du projet</label><input id="status-other-value" name="status_other" type="text" placeholder="Précisez l’avancement" maxlength="200"></div></div></div>
+            <div class="form-row"><label class="field-label" for="location">Adresse du terrain <b>*</b></label><div class="field-control"><input id="location" name="location" type="text" autocomplete="street-address" placeholder="Adresse complète du terrain" required maxlength="200"></div></div>
+            <div class="form-row"><label class="field-label" for="billing-address">Adresse de facturation</label><div class="field-control"><input id="billing-address" name="billing_address" type="text" autocomplete="billing street-address" placeholder="Adresse complète de facturation" maxlength="200"></div></div>
+            <div class="form-row"><label class="field-label" for="cadastral-extract">Extrait cadastral</label><div class="field-control"><input id="cadastral-extract" name="cadastral_extract" type="file" accept=".pdf,.jpg,.jpeg,.png"></div></div>
+            <div class="form-row"><label class="field-label" for="site-plan">Plan de masse</label><div class="field-control"><input id="site-plan" name="site_plan" type="file" accept=".pdf,.jpg,.jpeg,.png"></div></div>
+            <div class="form-row"><label class="field-label" for="pc-aps">Dossier PC / APS</label><div class="field-control"><input id="pc-aps" name="pc_aps" type="file" accept=".pdf,.jpg,.jpeg,.png"></div></div>
+            <div class="form-row"><label class="field-label" for="name">Votre nom <b>*</b></label><div class="field-control"><input id="name" name="name" type="text" autocomplete="name" required maxlength="120"></div></div>
+            <div class="form-row"><label class="field-label" for="email">Votre e-mail <b>*</b></label><div class="field-control"><input id="email" name="email" type="email" autocomplete="email" required maxlength="254"></div></div>
+            <div class="form-row"><label class="field-label" for="phone">Téléphone</label><div class="field-control"><input id="phone" name="phone" type="tel" autocomplete="tel" maxlength="30" placeholder="Facultatif"></div></div>
+            <div class="form-row form-row-message"><label class="field-label" for="message">Explication du projet</label><div class="field-control"><textarea id="message" name="message" rows="4" maxlength="1500" placeholder="Décrivez votre projet et les éléments utiles à votre demande…"></textarea></div></div>
+          </div>
+          <label class="consent"><input type="checkbox" name="consent" required><span>J’accepte que les informations saisies soient utilisées pour répondre à ma demande, conformément à la <a href="confidentialite/">politique de confidentialité</a>. <b>*</b></span></label>
+          <p class="form-error" id="form-error" aria-live="polite"></p>
+          <div class="form-notice" id="form-notice" role="status" hidden></div>
+          <div class="form-controls"><button class="button button-navy" type="submit">Envoyer ma demande <span aria-hidden="true">↗</span></button></div>
+          <p class="form-required">* Champs obligatoires · Prototype : l’envoi n’est pas connecté et aucune donnée n’est conservée.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-main">
+      <div class="footer-brand">
+        <a href="#accueil">
+          <img src="assets\images\LOGO Geoterria cropped.svg" alt="Logo Geoterria" width="500" height="180">
+        </a>
+      </div>
+      <div class="footer-nav">
+        <span>Explorer</span>
+        <a href="#expertises">Expertises</a>
+        <a href="#projets">Nos investigations</a>
+        <a href="#terrains">Nos agences</a>
+        <a href="#reperes">Repères techniques</a>
+        <a href="loi-elan/">Loi ELAN & étude G1</a>
+      </div>
+      <div class="footer-nav">
+        <span>Informations</span>
+        <a href="#contact">Contact · contact@geoterria.com</a>
+        <a href="mentions-legales/">Mentions légales</a>
+        <a href="confidentialite/">Confidentialité</a>
+        <a href="#contact">+33 (0)4 94 27 87 40</a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© <span id="current-year">2026</span> GEOTERRIA · Tous droits réservés</span>
+      <span>Études et conseils géotechniques</span>
+      <a href="#accueil">Haut de page ↑</a>
+    </div>
+  </footer>
+</body>
+</html>

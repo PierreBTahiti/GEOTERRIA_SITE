@@ -1,0 +1,43 @@
+# GEOTERRIA
+
+> Bureau d’études géotechniques — Var, France.
+> Ingénierie des sols et des fondations, hydrogéologie, études de sites et sols pollués.
+> Activité et informations institutionnelles à confirmer avant publication définitive.
+
+## Présentation
+
+GEOTERRIA propose des études géotechniques pour les particuliers et les professionnels du bâtiment. Les contenus du site distinguent les situations types des références de missions réellement exécutées. Les coordonnées, assurances, qualifications et avis non fournis ne sont pas inventés.
+
+## Domaines
+
+- Études géotechniques selon les missions pertinentes de la NF P 94-500 : G1 à G5.
+- Études des sols et des fondations.
+- Hydrogéologie.
+- Études de sites et sols pollués.
+- Diagnostic géotechnique des désordres liés au sol.
+- Les études et conseils sont indépendants des entreprises de travaux : GEOTERRIA ne réalise pas les travaux de fondations ni de terrassement.
+
+## Agences
+
+- La Garde, Var : [adresse à renseigner] — [zone d’intervention à préciser].
+- Éguilles, Bouches-du-Rhône : [adresse à renseigner] — [zone d’intervention à préciser].
+- Toulouse, Haute-Garonne : [adresse à renseigner] — [zone d’intervention à préciser].
+
+Les localisations de la carte du site sont schématiques ; les adresses et zones d’intervention restent à confirmer.
+
+## Informations utiles
+
+- [Étude géotechnique préalable et loi ELAN](/loi-elan/)
+- [Missions géotechniques et NF P 94-500](/missions-geotechniques/)
+- [Mentions légales](/mentions-legales/)
+- [Politique de confidentialité](/confidentialite/)
+
+## Contact
+
+- Formulaire de cadrage : [/#contact](/#contact)
+- Téléphone : [Téléphone à renseigner]
+- E-mail : [Adresse e-mail à renseigner]
+
+## Prudence d’interprétation
+
+Les données publiques (BRGM, BSS, Infoterre, Géorisques) décrivent des contextes connus et ne remplacent pas les reconnaissances et études nécessaires à une parcelle ou à un projet.
