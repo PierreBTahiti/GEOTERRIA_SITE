@@ -1,4 +1,4 @@
-:root{--navy:#172d43;--navy-deep:#102235;--blue:#284762;--copper:#b56e4c;--copper-light:#d29a76;--cream:#f6f4ef;--paper:#fffefa;--ink:#1f2931;--muted:#69747c;--line:#deded8;--green:#87917b;--content:1160px;--serif:Georgia,"Times New Roman",serif;--sans:"DM Sans",Arial,sans-serif}
+:root{--navy:#223c72;--navy-deep:#182d5a;--blue:#223c72;--logo-blue:#223c72;--copper:#b56e4c;--copper-light:#d29a76;--cream:#f6f4ef;--paper:#fffefa;--ink:#1f2931;--muted:#69747c;--line:#deded8;--green:#87917b;--content:1160px;--serif:Georgia,"Times New Roman",serif;--sans:"DM Sans",Arial,sans-serif}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:90px}
 body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased}
@@ -25,7 +25,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 .main-nav .nav-cta span{margin-left:8px;color:var(--copper)}
 .menu-toggle{display:none}
 .hero{height:min(735px,calc(100svh - 82px));min-height:610px;position:relative;display:flex;align-items:center;overflow:hidden;background:var(--navy-deep);color:#fff}
-.hero-photo{position:absolute;inset:0;background-image:linear-gradient(90deg,rgba(14,32,49,.72) 0%,rgba(17,35,52,.58) 44%,rgba(16,35,52,.15) 100%),linear-gradient(0deg,rgba(16,34,53,.16),transparent 40%),url("assets/images/Photo_La_Garde.jpg");background-size:cover,cover,100% auto;background-position:center 37%;filter:saturate(.82)}
+.hero-photo{position:absolute;inset:0;background-image:linear-gradient(90deg,rgba(34,60,114,.72) 0%,rgba(34,60,114,.58) 44%,rgba(34,60,114,.15) 100%),linear-gradient(0deg,rgba(34,60,114,.16),transparent 40%),url("assets/images/Photo_La_Garde.jpg");background-size:cover,cover,100% auto;background-position:center 37%;filter:saturate(.82)}
 .hero-content>.eyebrow{display:none}
 .hero:after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.12;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 420 340' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23e4e0d4' stroke-width='1'%3E%3Cpath d='M-50 180C30 150 35 40 125 40s90 90 170 55 105-85 170-25 35 145 100 120'/%3E%3Cpath d='M-50 200C35 170 45 65 130 62s88 87 166 53 103-81 167-23 42 138 104 111'/%3E%3Cpath d='M-50 220C39 189 54 87 136 84s84 83 161 51 101-78 162-21 49 129 108 100'/%3E%3Cpath d='M-40 240C45 208 64 109 142 106s80 80 157 49 98-74 157-18 55 120 111 89'/%3E%3Cpath d='M-40 260C50 228 75 131 149 128s76 77 151 47 95-70 152-15 61 110 114 78'/%3E%3C/g%3E%3C/svg%3E");background-size:cover;background-position:center;background-repeat:no-repeat}
 .hero-content{position:relative;z-index:1;width:min(var(--content),calc(100% - 64px));margin:0 auto;padding-bottom:24px}
@@ -144,6 +144,12 @@ h1,h2,h3{font-family:"Manrope",var(--sans);font-weight:500;letter-spacing:-.045e
 .investigation-visual svg .device,.investigation-visual svg .device-cap{fill:#7d9090;stroke:#344e5b;stroke-width:2}
 .investigation-visual svg .probe,.investigation-visual svg .foundation{fill:#bd805e;stroke:#83583e;stroke-width:1.5}
 .investigation-visual svg .water{fill:none;stroke:#5288a0;stroke-width:3}
+.investigation-visual svg .water-fill{fill:#b9d8df;stroke:#5288a0;stroke-width:1.5}
+.investigation-visual svg .screen{fill:#d7c3a6;stroke:#715c49;stroke-width:1.2;stroke-dasharray:2 2}
+.investigation-visual svg .gravel{fill:#c9b99f;stroke:#8b7b65;stroke-width:1}
+.investigation-visual svg .plume{fill:#bd805e;opacity:.38;stroke:#a26443;stroke-width:1}
+.investigation-visual svg .building{fill:#d9d6ce;stroke:#596b68;stroke-width:1.5}
+.investigation-visual svg .drawdown{fill:none;stroke:#5288a0;stroke-width:1.5;stroke-dasharray:3 2}
 .investigation-visual svg .arrow-line,.investigation-visual svg .arrow-head{fill:none;stroke:#a26443;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
 .investigation-visual svg text{fill:#586565;font:8px var(--sans)}
 .investigation-visual svg .excavation{fill:#fffefa;stroke:#a78d72;stroke-width:1.5}
@@ -184,7 +190,7 @@ h1,h2,h3{font-family:"Manrope",var(--sans);font-weight:500;letter-spacing:-.045e
 .gallery-section{background:#f2f0e9}
 .gallery-section .section-heading{margin-bottom:34px}
 .gallery-section .section-heading h2{font-size:clamp(34px,4vw,47px)}
- .gallery-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px;align-items:start}
+ .gallery-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px;align-items:stretch}
 .gallery-grid figure{min-width:0;margin:0;background:#fff}
  .gallery-image{position:relative;height:auto;overflow:visible;background:#e4e1d9}
  .gallery-image img{display:block;width:100%;height:auto;object-fit:contain;transition:transform .4s}
@@ -196,6 +202,18 @@ h1,h2,h3{font-family:"Manrope",var(--sans);font-weight:500;letter-spacing:-.045e
  .gallery-more{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-top:22px;padding-top:16px;border-top:1px solid var(--line)}
  .gallery-more p{margin:0;color:var(--muted);font-size:10px}
  .gallery-more .text-link{margin:0;white-space:nowrap}
+.gallery-discover{position:relative;display:flex;min-height:100%;overflow:hidden;background:var(--navy);color:#fff;text-decoration:none;isolation:isolate;transition:transform .25s,box-shadow .25s}
+.gallery-discover:hover{transform:translateY(-3px);box-shadow:0 12px 24px rgba(20,37,51,.18)}
+.gallery-discover-image{position:absolute;inset:0;background:linear-gradient(135deg,rgba(20,37,51,.25),rgba(20,37,51,.9)),url("assets/images/Forage_ferroviaire_nuit.jpg") center/cover;filter:blur(1px);transform:scale(1.04);z-index:-1}
+.gallery-discover-content{display:grid;align-content:end;gap:8px;padding:18px;min-height:210px;background:linear-gradient(0deg,rgba(20,37,51,.92),rgba(20,37,51,.1) 75%)}
+.gallery-discover-content small{font:600 9px var(--mono);letter-spacing:.12em;color:#e4b189}
+.gallery-discover-content strong{font:500 23px var(--serif);line-height:1.05}
+.gallery-discover-content>span{font-size:10px;line-height:1.5;color:rgba(255,255,255,.75)}
+ .gallery-discover-content b{color:#e4b189;font-size:15px}
+.expertise-reference{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:24px;padding:14px 0 0;border-top:1px solid var(--line)}
+.expertise-reference>span{width:100%;margin-bottom:2px;color:var(--muted);font:600 9px var(--mono);letter-spacing:.1em;text-transform:uppercase}
+.expertise-reference a{padding:7px 10px;border:1px solid #d9d4cb;color:var(--navy);font:600 10px var(--mono);text-decoration:none;transition:background .2s,color .2s,border-color .2s}
+.expertise-reference a:hover{background:var(--navy);border-color:var(--navy);color:#fff}
 .territory-section{padding-bottom:85px;background:var(--cream)}
 .territory-layout{display:grid;grid-template-columns:.9fr 1.1fr;align-items:center;gap:90px}
 .territory-copy h2{margin-bottom:20px}
@@ -239,7 +257,7 @@ h1,h2,h3{font-family:"Manrope",var(--sans);font-weight:500;letter-spacing:-.045e
 .credentials-grid h3{font:700 12px var(--sans);letter-spacing:0;color:var(--navy);margin:0 0 6px}
 .credentials-grid p:last-child{font-size:9px;line-height:1.6;color:var(--muted);margin:0}
 .credentials-grid a{color:var(--navy)}
-.reassurance-section{background:#253d50;color:white;padding:72px 0}
+.reassurance-section{background:var(--logo-blue, #223c72);color:white;padding:72px 0}
 .reassurance-layout{display:grid;grid-template-columns:.85fr 1.15fr;gap:85px;align-items:center}
 .reassurance-layout h2{font-size:42px;line-height:1.15;margin:0 0 12px}
 .reassurance-layout>div:first-child>p:last-child{max-width:365px;color:rgba(255,255,255,.67);font-size:11px}
@@ -347,8 +365,8 @@ h1,h2,h3{font-family:"Manrope",var(--sans);font-weight:500;letter-spacing:-.045e
  .chantier-card{min-width:0;margin:0;background:#f7f5ef;transition:transform .25s,box-shadow .25s}
  .chantier-card:hover{transform:translateY(-3px);box-shadow:0 12px 24px rgba(0,0,0,.2)}
  .chantier-card-featured,.chantier-card-wide{grid-column:span 2}
- .chantier-image{position:relative;height:155px;overflow:hidden;background:#d9d6ce}
- .chantier-card-featured .chantier-image,.chantier-card-wide .chantier-image{height:205px}
+.chantier-image{position:relative;height:150px;overflow:hidden;background:#d9d6ce}
+.chantier-card-featured .chantier-image,.chantier-card-wide .chantier-image{height:150px}
  .chantier-image img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .45s}
  .chantier-card:hover .chantier-image img{transform:scale(1.04)}
  .chantier-image span{position:absolute;top:10px;left:10px;padding:4px 7px;background:rgba(20,37,51,.82);color:white;font:600 9px var(--mono);letter-spacing:.08em}
@@ -411,7 +429,7 @@ h1,h2,h3{font-family:"Manrope",var(--sans);font-weight:500;letter-spacing:-.045e
     grid-template-columns: 1fr;
   }
 @media(max-width:1050px){.main-nav{gap:12px;font-size:10px}.header-inner{width:calc(100% - 40px)}.brand{min-width:203px}.brand-mark{width:47px;height:47px}.brand-copy strong{font-size:18px}.situation-grid{grid-template-columns:repeat(2,1fr)}.situation-card{min-height:282px}.method-layout,.territory-layout{gap:55px}.contact-layout{gap:45px}.faq-layout{gap:55px}}
-@media(max-width:760px){html{scroll-padding-top:70px}.container{width:calc(100% - 40px)}.header-inner{height:70px;width:calc(100% - 32px)}.brand-mark{width:44px;height:44px}.brand{min-width:auto}.brand-copy strong{font-size:18px}.menu-toggle{display:flex;width:42px;height:42px;flex-direction:column;justify-content:center;gap:6px;align-items:center;border:1px solid #dcdad4;background:transparent}.menu-toggle span{width:17px;height:1px;background:var(--navy)}.main-nav{display:none;position:absolute;top:69px;left:0;right:0;padding:17px 20px 22px;background:var(--paper);border-bottom:1px solid var(--line);box-shadow:0 12px 18px rgba(20,37,51,.08);align-items:stretch;gap:0}.main-nav.is-open{display:flex;flex-direction:column}.main-nav>a{padding:11px 3px;border-bottom:1px solid #e9e7e0;font-size:12px}.main-nav .nav-cta{margin-top:12px;padding:12px 14px;border:1px solid var(--navy)}.hero{height:680px;min-height:590px;max-height:calc(100svh - 70px)}.hero-photo{background-image:linear-gradient(90deg,rgba(14,32,49,.9),rgba(17,35,52,.62)),linear-gradient(0deg,rgba(16,34,53,.3),transparent 50%),url("assets/images/Photo_La_Garde.jpg");background-position:49% center}.hero-content{width:calc(100% - 40px)}.hero h1{font-size:clamp(45px,10vw,68px)}.hero-lead{max-width:490px;font-size:14px}.hero-stamp{right:7%;bottom:10%;width:94px;height:94px;font-size:7px}.hero-caption{right:auto;left:20px;bottom:-60px;font-size:7px}.hero-scroll{left:20px}.intro-strip-inner{padding:17px 0;min-height:0;display:grid;grid-template-columns:1fr 1fr;gap:12px;font-size:9px}.intro-strip i{display:none}.section{padding:80px 0}.heading-split{align-items:flex-start;flex-direction:column;gap:12px}.section-heading{margin-bottom:33px}.heading-split>p{max-width:540px!important}.expertise-row{grid-template-columns:78px 1fr 36px;gap:13px;padding:20px 0}.expertise-code{font-size:27px}.expertise-code span{font-size:7px}.expertise-row h3{font-size:16px}.expertise-row p{font-size:10px}.round-arrow{width:32px;height:32px}.method-layout,.territory-layout,.faq-layout,.contact-layout,.reassurance-layout{grid-template-columns:1fr;gap:38px}.method-section:after{inset:30% 0 0 25%}.method-copy h2{font-size:50px}.project-grid{gap:12px}.project-image{height:210px}.project-large .project-image{height:230px}.project-copy{padding:16px}.project-copy h3{font-size:19px}.gallery-grid{grid-template-columns:repeat(2,1fr)}.gallery-image{height:190px}.territory-layout{gap:30px}.territory-figure{max-width:540px}.data-strip{margin-top:47px;gap:20px}.data-strip>div{padding-left:34px}.data-icon{font-size:19px}.data-strip h3{font-size:14px}.data-strip p{font-size:10px}.faq-layout{gap:30px}.faq-intro h2{font-size:42px}.contact-section{padding:75px 0}.contact-layout{gap:30px}.contact-intro{padding-top:0}.contact-intro h2{font-size:47px}.contact-detail{margin-top:17px}.footer-main{grid-template-columns:1fr 1fr;gap:32px}.footer-brand{grid-column:span 2}.footer-bottom{flex-wrap:wrap}.footer-bottom span:nth-child(2){order:3;flex-basis:100%}}
+@media(max-width:760px){html{scroll-padding-top:70px}.container{width:calc(100% - 40px)}.header-inner{height:70px;width:calc(100% - 32px)}.brand-mark{width:44px;height:44px}.brand{min-width:auto}.brand-copy strong{font-size:18px}.menu-toggle{display:flex;width:42px;height:42px;flex-direction:column;justify-content:center;gap:6px;align-items:center;border:1px solid #dcdad4;background:transparent}.menu-toggle span{width:17px;height:1px;background:var(--navy)}.main-nav{display:none;position:absolute;top:69px;left:0;right:0;padding:17px 20px 22px;background:var(--paper);border-bottom:1px solid var(--line);box-shadow:0 12px 18px rgba(20,37,51,.08);align-items:stretch;gap:0}.main-nav.is-open{display:flex;flex-direction:column}.main-nav>a{padding:11px 3px;border-bottom:1px solid #e9e7e0;font-size:12px}.main-nav .nav-cta{margin-top:12px;padding:12px 14px;border:1px solid var(--navy)}.hero{height:680px;min-height:590px;max-height:calc(100svh - 70px)}.hero-photo{background-image:linear-gradient(90deg,rgba(34,60,114,.9),rgba(34,60,114,.62)),linear-gradient(0deg,rgba(34,60,114,.3),transparent 50%),url("assets/images/Photo_La_Garde.jpg");background-position:49% center}.hero-content{width:calc(100% - 40px)}.hero h1{font-size:clamp(45px,10vw,68px)}.hero-lead{max-width:490px;font-size:14px}.hero-stamp{right:7%;bottom:10%;width:94px;height:94px;font-size:7px}.hero-caption{right:auto;left:20px;bottom:-60px;font-size:7px}.hero-scroll{left:20px}.intro-strip-inner{padding:17px 0;min-height:0;display:grid;grid-template-columns:1fr 1fr;gap:12px;font-size:9px}.intro-strip i{display:none}.section{padding:80px 0}.heading-split{align-items:flex-start;flex-direction:column;gap:12px}.section-heading{margin-bottom:33px}.heading-split>p{max-width:540px!important}.expertise-row{grid-template-columns:78px 1fr 36px;gap:13px;padding:20px 0}.expertise-code{font-size:27px}.expertise-code span{font-size:7px}.expertise-row h3{font-size:16px}.expertise-row p{font-size:10px}.round-arrow{width:32px;height:32px}.method-layout,.territory-layout,.faq-layout,.contact-layout,.reassurance-layout{grid-template-columns:1fr;gap:38px}.method-section:after{inset:30% 0 0 25%}.method-copy h2{font-size:50px}.project-grid{gap:12px}.project-image{height:210px}.project-large .project-image{height:230px}.project-copy{padding:16px}.project-copy h3{font-size:19px}.gallery-grid{grid-template-columns:repeat(2,1fr)}.gallery-image{height:190px}.territory-layout{gap:30px}.territory-figure{max-width:540px}.data-strip{margin-top:47px;gap:20px}.data-strip>div{padding-left:34px}.data-icon{font-size:19px}.data-strip h3{font-size:14px}.data-strip p{font-size:10px}.faq-layout{gap:30px}.faq-intro h2{font-size:42px}.contact-section{padding:75px 0}.contact-layout{gap:30px}.contact-intro{padding-top:0}.contact-intro h2{font-size:47px}.contact-detail{margin-top:17px}.footer-main{grid-template-columns:1fr 1fr;gap:32px}.footer-brand{grid-column:span 2}.footer-bottom{flex-wrap:wrap}.footer-bottom span:nth-child(2){order:3;flex-basis:100%}}
 @media(max-width:480px){.container{width:calc(100% - 32px)}.hero{min-height:610px;height:calc(100svh - 70px)}.hero-content{width:calc(100% - 36px)}.hero h1{font-size:45px}.hero-lead{font-size:13px}.hero-actions{align-items:flex-start;flex-direction:column;gap:16px}.hero-stamp{width:80px;height:80px;right:6%;bottom:8%}.hero-stamp:before{inset:5px}.intro-strip-inner{grid-template-columns:1fr 1fr;font-size:8px}.section{padding:68px 0}.section-heading h2,.territory-copy h2{font-size:39px}.situation-grid{grid-template-columns:1fr;gap:10px}.situation-card{min-height:250px;padding:22px}.situation-card h3{margin-top:23px}.expertise-row{grid-template-columns:60px 1fr 30px;gap:8px}.expertise-code{font-size:24px}.expertise-row h3{font-size:15px}.expertise-row p{font-size:9px}.expertise-foot{align-items:flex-start;flex-direction:column;gap:10px}.other-expertises{grid-template-columns:1fr}.project-grid{grid-template-columns:1fr}.project-card,.project-card.project-large{grid-column:span 1}.project-image,.project-large .project-image{height:220px}.project-copy h3{font-size:20px}.gallery-grid{grid-template-columns:1fr}.gallery-image{height:215px}.territory-figure figcaption{font-size:8px}.data-strip{grid-template-columns:1fr;gap:18px}.data-strip p{max-width:none}.reference-grid,.credentials-grid{grid-template-columns:1fr}.reference-card{min-height:220px}.credentials-grid>article{padding:16px}.reassurance-section{padding:60px 0}.reassurance-layout{gap:25px}.reassurance-layout h2{font-size:38px}.faq-list summary{font-size:12px}.contact-section{padding:63px 0}.project-form{padding:19px 15px}.demo-alert{flex-direction:column;gap:3px}.form-step legend{font-size:22px}.choice span{font-size:9px;padding:8px}.contact-fields{grid-template-columns:1fr}.field-full{grid-column:span 1}.footer-main{gap:26px 16px}.footer-nav{font-size:9px}.footer-bottom{font-size:8px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}}
 @media(max-width:1050px){.office-layout{gap:30px}.investigation-grid{grid-template-columns:repeat(2,1fr)}}
@@ -440,5 +458,5 @@ h1,h2,h3{font-family:"Manrope",var(--sans);font-weight:500;letter-spacing:-.045e
  .expertise-gallery{padding:26px 16px 20px!important}
  .chantiers-grid{grid-template-columns:1fr}
  .chantier-card-featured,.chantier-card-wide{grid-column:span 1}
- .chantier-image,.chantier-card-featured .chantier-image,.chantier-card-wide .chantier-image{height:205px}
+ .chantier-image,.chantier-card-featured .chantier-image,.chantier-card-wide .chantier-image{height:165px}
 }

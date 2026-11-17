@@ -71,15 +71,20 @@
 
     body .gallery-grid .gallery-image {
       aspect-ratio: auto !important;
-      height: auto !important;
-      background: transparent !important;
+      height: 250px !important;
+      overflow: hidden !important;
+      background: #e4e1d9 !important;
     }
 
     body .gallery-grid .gallery-image img {
       display: block;
       width: 100%;
-      height: auto !important;
-      object-fit: initial !important;
+      height: 100% !important;
+      object-fit: cover !important;
+    }
+
+    @media (max-width: 480px) {
+      body .gallery-grid .gallery-image { height: 250px !important; }
     }
 
     body .field-label b,
@@ -177,7 +182,7 @@
             <p class="eyebrow" id="situation-kicker">Mission type G1</p>
             <h3 id="situation-title">Terrain à bâtir : l'étude G1 de la loi ÉLAN</h3>
             <p id="situation-description">La réponse dépend notamment de la commune, du terrain et des règles applicables. Une étude préalable peut aider à transmettre à l’acquéreur des informations utiles sur le sol.</p>
-            <a class="text-link" href="#contact">Parler de votre projet <span aria-hidden="true">↗</span></a>
+             <a class="text-link" id="situation-link" href="loi-elan/">Lire le guide Loi ELAN et G1 <span aria-hidden="true">↗</span></a>
           </article>
         </div>
       </div>
@@ -198,7 +203,7 @@
 
         <div class="expertise-grid">
           <article class="expertise-card">
-            <img class="expertise-photo" src="assets/images/EMCI_sous_sol.jpeg" alt="EMCI en sous sol pour étude fondation" loading="lazy">
+            <img class="expertise-photo" src="assets/images/fouille.jpg" alt="Sols et fondations" loading="lazy">
 
             <span class="mini-mark">01</span>
             <h3>Sols et fondations</h3>
@@ -214,7 +219,7 @@
           </article>
 
           <article class="expertise-card">
-            <img class="expertise-photo" src="assets/images/fieldwork-cores.jpg" alt="carrotes de sol" loading="lazy">
+            <img class="expertise-photo" src="assets/images/carrotes.png" alt="carrotes de sol" loading="lazy">
 
             <span class="mini-mark">02</span>
             <h3>Compréhension géologique du sous-sol</h3>
@@ -225,7 +230,7 @@
           
 
           <article class="expertise-card">
-            <img class="expertise-photo" src="assets/images/site_naturel.jpg" alt="Site naturel, forage" loading="lazy">
+            <img class="expertise-photo" src="assets/images/Image_LinkedIn_2.png" alt="Sondages et forages" loading="lazy">
 
             <span class="mini-mark">03</span>
             <h3>Sondages et forages</h3>
@@ -241,21 +246,21 @@
             <a class="expertise-more" href="expertises-geotechniques/#essais">Découvrir cette expertise <span aria-hidden="true">↗</span></a>
           </article>
         <article class="expertise-card">
-          <img class="expertise-photo" src="assets/images/hydrologie.jpg" alt="Reconnaissance hydrogéologique et observation de l’eau dans les sols" loading="lazy">
+          <img class="expertise-photo" src="assets/images/Fouille_eau.jpg" alt="Reconnaissance hydrogéologique et observation de l’eau dans les sols" loading="lazy">
           <span class="mini-mark">05</span>
           <h3>Hydrogéologie</h3>
           <p>Étudier les eaux souterraines et leurs interactions avec les terrains, les terrassements et les ouvrages, afin d'anticiper les contraintes liées à leur présence et à leurs variations.</p>
           <a class="expertise-more" href="expertises-geotechniques/#hydrogeologie">Découvrir cette expertise <span aria-hidden="true">↗</span></a>
         </article>
         <article class="expertise-card">
-          <img class="expertise-photo" src="assets/images/ssp.jpg" alt="Étude et prélèvement de sols pour un diagnostic de pollution" loading="lazy">
+          <img class="expertise-photo" src="assets/images/SSP_3.png" alt="Étude et prélèvement de sols pour un diagnostic de pollution" loading="lazy">
           <span class="mini-mark">06</span>
           <h3>Sites et sols pollués (SSP)</h3>
           <p>Identifier, caractériser et évaluer les pollutions potentielles des sols et des eaux souterraines pour accompagner les projets d'aménagement et de réhabilitation.</p>
           <a class="expertise-more" href="expertises-geotechniques/#ssp">Découvrir cette expertise <span aria-hidden="true">↗</span></a>
         </article>
         </div>
-        <div class="expertise-foot"><span>Deux repères pour avancer dans votre projet</span><a class="text-link" href="expertises-geotechniques/">Voir nos tâches par expertise <span aria-hidden="true">↗</span></a><a class="text-link" href="missions-geotechniques/">Comprendre les missions G1 à G5 <span aria-hidden="true">↗</span></a></div>
+        <div class="expertise-foot"><a class="text-link" href="expertises-geotechniques/">Voir les descriptions de toutes nos expertises <span aria-hidden="true">↗</span></a><a class="text-link" href="missions-geotechniques/">Comprendre les missions G1 à G5 <span aria-hidden="true">↗</span></a></div>
       </div>
     </section>
 
@@ -263,16 +268,16 @@
 
     <section class="section investigations-section" id="projets">
       <div class="container">
-        <div class="section-heading heading-split"><div><p class="eyebrow">03 — Investigations</p><h2>Des reconnaissances<br><em>adaptées au terrain.</em></h2></div><p>Chaque méthode répond à un objectif précis. Le programme retenu dépend du projet, du sol et des accès disponibles.</p></div>
+        <div class="section-heading heading-split"><div><p class="eyebrow">03 — Investigations</p><h2>Des reconnaissances<br><em>adaptées au terrain.</em></h2></div></div>
         <div class="investigation-grid">
-          <article class="investigation-card"><div class="investigation-visual"><svg viewBox="0 0 220 140" role="img" aria-label="Schéma en coupe d’un piézomètre dans le sol"><path class="ground-line" d="M12 41H208"/><path class="soil-layer" d="M12 42H208V128H12Z"/><path class="soil-strata" d="M12 76c44-12 94 13 196-2M12 103c58 14 114-12 196 4"/><path class="device" d="M104 21v95m-9-67h18M99 77h10m-10 8h10m-10 8h10"/><path class="water" d="M107 74v31"/><path class="device-cap" d="M98 20h12v8H98z"/><path class="arrow-line" d="M112 106h37"/><path class="arrow-head" d="m149 102 8 4-8 4"/><text x="161" y="109">niveau d’eau</text></svg><span class="visual-label">SCHÉMA ILLUSTRATIF</span></div><div class="investigation-copy"><span class="investigation-index">01</span><h3>Pose de piézomètre</h3><p>Suivre le niveau d’eau souterraine à l’endroit et sur la durée définis par l’étude.</p></div></article>
-          <article class="investigation-card"><div class="investigation-visual"><svg viewBox="0 0 220 140" role="img" aria-label="Schéma illustratif d’un essai pressiométrique"><path class="ground-line" d="M12 38H208"/><path class="soil-layer" d="M12 39H208V128H12Z"/><path class="soil-strata" d="M12 70c55-14 112 13 196-4M12 100c54 12 111-14 196 2"/><path class="device" d="M106 20v92"/><path class="probe" d="M101 62q5-10 10 0v31q-5 10-10 0z"/><path class="arrow-line" d="M83 70h-22m22 13H56m27 13H61m76-26h22m-22 13h27m-27 13h22"/><path class="arrow-head" d="m61 66-7 4 7 4m-5 9-7 4 7 4m10 5-7 4 7 4m62-30 7 4-7 4m5 5 7 4-7 4m-5 5 7 4-7 4"/></svg><span class="visual-label">SCHÉMA ILLUSTRATIF</span></div><div class="investigation-copy"><span class="investigation-index">02</span><h3>Essai pressiométrique</h3><p>Mesurer la réponse du terrain à l’expansion d’une sonde dans un forage.</p></div></article>
-          <article class="investigation-card"><div class="investigation-visual"><svg viewBox="0 0 220 140" role="img" aria-label="Schéma illustratif d’un essai au pénétromètre"><path class="ground-line" d="M12 43H208"/><path class="soil-layer" d="M12 44H208V128H12Z"/><path class="soil-strata" d="M12 76c48-9 101 12 196-3M12 103c60 14 119-13 196 2"/><path class="device" d="M110 18v86"/><path class="probe" d="m103 104 7 12 7-12z"/><path class="device-cap" d="M97 19h26v12H97z"/><path class="arrow-line" d="M110 12V6"/><path class="arrow-head" d="m106 10 4-6 4 6"/><text x="128" y="25">enfoncement</text></svg><span class="visual-label">SCHÉMA ILLUSTRATIF</span></div><div class="investigation-copy"><span class="investigation-index">03</span><h3>Essai au pénétromètre</h3><p>Évaluer la résistance du sol lors de l’enfoncement d’une pointe instrumentée.</p></div></article>
-          <article class="investigation-card"><div class="investigation-visual"><svg viewBox="0 0 220 140" role="img" aria-label="Schéma illustratif d’une reconnaissance en fouille de fondation"><path class="ground-line" d="M12 34H208"/><path class="soil-layer" d="M12 35H208V128H12Z"/><path class="soil-strata" d="M12 72c58-13 108 12 196-4M12 103c51 12 115-14 196 2"/><path class="excavation" d="m67 35 15 58h56l15-58"/><path class="foundation" d="M80 86h60v14H80z"/><path class="foundation" d="M72 100h76v7H72z"/><path class="arrow-line" d="M102 51h20"/><path class="arrow-head" d="m102 47-8 4 8 4m20-8 8 4-8 4"/><text x="89" y="70">fondation</text></svg><span class="visual-label">SCHÉMA ILLUSTRATIF</span></div><div class="investigation-copy"><span class="investigation-index">04</span><h3>Reconnaissance de fondations</h3><p>Observer une fondation existante dans une fouille ponctuelle définie et sécurisée.</p></div></article>
-          <article class="investigation-card"><div class="investigation-visual"><svg viewBox="0 0 220 140" role="img" aria-label="Schéma illustratif d’un carottage géotechnique"><path class="ground-line" d="M12 42H208"/><path class="soil-layer" d="M12 43H208V128H12Z"/><path class="soil-strata" d="M12 73c53-13 111 13 196-4M12 101c52 13 117-15 196 2"/><path class="device" d="M103 18h15v48h-15z"/><path class="sample" d="M107 66h7v53h-7z"/><path class="sample-line" d="M108 74h5m-5 9h5m-5 9h5m-5 9h5m-5 9h5"/><path class="arrow-line" d="M96 35v23"/><path class="arrow-head" d="m92 54 4 8 4-8"/><text x="130" y="31">carotte</text></svg><span class="visual-label">SCHÉMA ILLUSTRATIF</span></div><div class="investigation-copy"><span class="investigation-index">05</span><h3>Carottage</h3><p>Prélever une carotte pour examiner la succession et la nature des terrains traversés.</p></div></article>
-          <article class="investigation-card"><div class="investigation-visual"><svg viewBox="0 0 220 140" role="img" aria-label="Schéma illustratif d’un diagnostic de pollution"><path class="ground-line" d="M12 42H208"/><path class="soil-layer" d="M12 43H208V128H12Z"/><path class="soil-strata" d="M12 74c48-12 108 14 196-3M12 103c57 13 113-14 196 2"/><path class="probe" d="M103 20h14v76h-14z"/><path class="sample" d="M105 75h10v37h-10z"/><circle class="water" cx="158" cy="85" r="12"/><path class="arrow-line" d="M158 67v-8"/><path class="arrow-head" d="m154 62 4-7 4 7"/><text x="136" y="112">prélèvement</text></svg><span class="visual-label">DIAGNOSTIC</span></div><div class="investigation-copy"><span class="investigation-index">06</span><h3>Diagnostic pollution</h3><p>Caractériser les sols, les remblais et les sources potentielles de pollution selon l’usage du site.</p></div></article>
-          <article class="investigation-card"><div class="investigation-visual"><svg viewBox="0 0 220 140" role="img" aria-label="Schéma illustratif d’un essai de pompage"><path class="ground-line" d="M12 42H208"/><path class="soil-layer" d="M12 43H208V128H12Z"/><path class="soil-strata" d="M12 74c48-12 108 14 196-3M12 103c57 13 113-14 196 2"/><path class="device" d="M103 18v94"/><path class="device-cap" d="M96 18h14v9H96z"/><path class="water" d="M60 91c20-11 35 11 53 0s32-11 52 0"/><path class="arrow-line" d="M111 66v-22"/><path class="arrow-head" d="m107 48 4-7 4 7"/><text x="135" y="52">débit</text></svg><span class="visual-label">EAU SOUTERRAINE</span></div><div class="investigation-copy"><span class="investigation-index">07</span><h3>Essai de pompage</h3><p>Mesurer les débits, les niveaux et l’influence d’un pompage sur la nappe et les ouvrages voisins.</p></div></article>
-          <article class="investigation-card"><div class="investigation-visual"><svg viewBox="0 0 220 140" role="img" aria-label="Schéma illustratif d’un diagnostic pour chantier"><path class="ground-line" d="M12 42H208"/><path class="soil-layer" d="M12 43H208V128H12Z"/><path class="soil-strata" d="M12 74c48-12 108 14 196-3M12 103c57 13 113-14 196 2"/><path class="foundation" d="M55 91h110v17H55z"/><path class="device-cap" d="M91 59h38v8H91z"/><path class="device" d="M110 67v24"/><path class="arrow-line" d="M39 66h32m-32 0 7-5m-7 5 7 5m142-5h-32m32 0-7-5m7 5-7 5"/><text x="77" y="122">ajustement</text></svg><span class="visual-label">CHANTIER</span></div><div class="investigation-copy"><span class="investigation-index">08</span><h3>Diagnostic et résolution de chantier</h3><p>Analyser un imprévu géotechnique et proposer rapidement des adaptations documentées pour la suite des travaux.</p></div></article>
+<article class="investigation-card"><div class="investigation-visual"><svg viewBox="0 0 220 140" role="img" aria-label="Coupe d’un piézomètre avec crépine et niveau d’eau"><path class="ground-line" d="M12 36H208"/><path class="soil-layer" d="M12 37H208V128H12Z"/><path class="soil-strata" d="M12 70c45-12 95 13 196-3M12 101c58 13 114-12 196 3"/><path class="gravel" d="M96 61h24v56H96z"/><path class="device" d="M102 17h12v45h-12z"/><path class="screen" d="M102 76h12v36h-12z"/><path class="device-cap" d="M99 17h18v7H99z"/><path class="water" d="M79 76h58M108 76v36"/><path class="arrow-line" d="M140 76h21"/><path class="arrow-head" d="m157 72 8 4-8 4"/><text x="168" y="79">niveau</text></svg><span class="visual-label">NIVEAU D’EAU</span></div><div class="investigation-copy"><span class="investigation-index">01</span><h3>Pose de piézomètre</h3><p>Suivre le niveau d’eau souterraine à l’endroit et sur la durée définis par l’étude.</p></div></article>
+<article class="investigation-card"><div class="investigation-visual"><svg viewBox="0 0 220 140" role="img" aria-label="Coupe d’un forage avec sonde pressiométrique dilatée"><path class="ground-line" d="M12 36H208"/><path class="soil-layer" d="M12 37H208V128H12Z"/><path class="soil-strata" d="M12 70c55-14 112 13 196-4M12 100c54 12 111-14 196 2"/><path class="device" d="M104 16h12v101h-12z"/><path class="probe" d="M97 60q13-9 26 0v30q-13 9-26 0z"/><path class="arrow-line" d="M93 70h-27m27 10H57m70-10h27m-27 10h36"/><path class="arrow-head" d="m68 66-8 4 8 4m-8 6-8 4 8 4m73-18 8 4-8 4m9 2 8 4-8 4"/><text x="61" y="53">pression</text></svg><span class="visual-label">DÉFORMATION DU SOL</span></div><div class="investigation-copy"><span class="investigation-index">02</span><h3>Essai pressiométrique</h3><p>Mesurer la réponse du terrain à l’expansion d’une sonde dans un forage.</p></div></article>
+<article class="investigation-card"><div class="investigation-visual"><svg viewBox="0 0 220 140" role="img" aria-label="Coupe d’une pointe de pénétromètre enfoncée dans le sol"><path class="ground-line" d="M12 38H208"/><path class="soil-layer" d="M12 39H208V128H12Z"/><path class="soil-strata" d="M12 70c48-9 101 12 196-3M12 101c60 14 119-13 196 2"/><path class="device-cap" d="M96 16h28v9H96z"/><path class="device" d="M106 25h8v79h-8z"/><path class="probe" d="m101 103 9 14 9-14z"/><path class="arrow-line" d="M110 9v-6"/><path class="arrow-head" d="m106 7 4-6 4 6"/><path class="arrow-line" d="M126 112h27"/><path class="arrow-head" d="m150 108 8 4-8 4"/><text x="130" y="106">pointe</text></svg><span class="visual-label">RÉSISTANCE À L’ENFONCEMENT</span></div><div class="investigation-copy"><span class="investigation-index">03</span><h3>Essai au pénétromètre</h3><p>Évaluer la résistance du sol lors de l’enfoncement d’une pointe instrumentée.</p></div></article>
+<article class="investigation-card"><div class="investigation-visual"><svg viewBox="0 0 220 140" role="img" aria-label="Coupe d’une fouille montrant une fondation existante"><path class="ground-line" d="M12 34H208"/><path class="soil-layer" d="M12 35H208V128H12Z"/><path class="soil-strata" d="M12 72c58-13 108 12 196-4M12 103c51 12 115-14 196 2"/><path class="excavation" d="m62 35 17 61h62l17-61"/><path class="foundation" d="M76 88h68v14H76z"/><path class="foundation" d="M67 102h86v8H67z"/><path class="arrow-line" d="M78 70h64"/><path class="arrow-head" d="m85 66-8 4 8 4m50-8 8 4-8 4"/><text x="88" y="82">fouille</text></svg><span class="visual-label">FONDATION EXISTANTE</span></div><div class="investigation-copy"><span class="investigation-index">04</span><h3>Reconnaissance de fondations</h3><p>Observer une fondation existante dans une fouille ponctuelle définie et sécurisée.</p></div></article>
+<article class="investigation-card"><div class="investigation-visual"><svg viewBox="0 0 220 140" role="img" aria-label="Coupe d’un carottier prélevant une carotte de sol"><path class="ground-line" d="M12 39H208"/><path class="soil-layer" d="M12 40H208V128H12Z"/><path class="soil-strata" d="M12 72c53-13 111 13 196-4M12 101c52 13 117-15 196 2"/><path class="device" d="M99 16h22v54H99z"/><path class="sample" d="M105 68h10v50h-10z"/><path class="sample-line" d="M106 76h8m-8 9h8m-8 9h8m-8 9h8m-8 9h8"/><path class="arrow-line" d="M91 25v32"/><path class="arrow-head" d="m87 53 4 8 4-8"/><text x="131" y="29">carotte</text></svg><span class="visual-label">ÉCHANTILLON CONTINU</span></div><div class="investigation-copy"><span class="investigation-index">05</span><h3>Carottage</h3><p>Prélever une carotte pour examiner la succession et la nature des terrains traversés.</p></div></article>
+<article class="investigation-card"><div class="investigation-visual"><svg viewBox="0 0 220 140" role="img" aria-label="Coupe d’un sol pollué avec prélèvement et panache de pollution"><path class="ground-line" d="M12 39H208"/><path class="soil-layer" d="M12 40H208V128H12Z"/><path class="soil-strata" d="M12 73c48-12 108 14 196-3M12 103c57 13 113-14 196 2"/><path class="plume" d="M75 91q35-23 70 0-35 27-70 0z"/><path class="probe" d="M103 17h14v75h-14z"/><path class="sample" d="M105 74h10v38h-10z"/><circle class="water-fill" cx="158" cy="92" r="10"/><path class="arrow-line" d="M158 77v-10"/><path class="arrow-head" d="m154 70 4-7 4 7"/><text x="128" y="119">zone à caractériser</text></svg><span class="visual-label">SOL / REMBLAI / EAU</span></div><div class="investigation-copy"><span class="investigation-index">06</span><h3>Diagnostic pollution</h3><p>Caractériser les sols, les remblais et les sources potentielles de pollution selon l’usage du site.</p></div></article>
+<article class="investigation-card"><div class="investigation-visual"><svg viewBox="0 0 220 140" role="img" aria-label="Coupe d’un puits pompé avec rabattement de la nappe"><path class="ground-line" d="M12 38H208"/><path class="soil-layer" d="M12 39H208V128H12Z"/><path class="soil-strata" d="M12 72c48-12 108 14 196-3M12 103c57 13 113-14 196 2"/><path class="water-fill" d="M12 92q38-13 76 0t76 0 44 0v36H12z"/><path class="device" d="M105 18v96"/><path class="device-cap" d="M98 18h14v9H98z"/><path class="drawdown" d="M45 92q55 43 110 0"/><path class="arrow-line" d="M112 67V43"/><path class="arrow-head" d="m108 47 4-7 4 7"/><text x="132" y="50">débit</text></svg><span class="visual-label">RABATTEMENT DE NAPPE</span></div><div class="investigation-copy"><span class="investigation-index">07</span><h3>Essai de pompage</h3><p>Mesurer les débits, les niveaux et l’influence d’un pompage sur la nappe et les ouvrages voisins.</p></div></article>
+<article class="investigation-card"><div class="investigation-visual"><svg viewBox="0 0 220 140" role="img" aria-label="Schéma d’un diagnostic de chantier avec fondation et adaptation de solution"><path class="ground-line" d="M12 42H208"/><path class="soil-layer" d="M12 43H208V128H12Z"/><path class="soil-strata" d="M12 74c48-12 108 14 196-3M12 103c57 13 113-14 196 2"/><path class="building" d="M53 31h42v35H53z"/><path class="building" d="M61 22h26v9H61z"/><path class="foundation" d="M47 89h102v17H47z"/><path class="device-cap" d="M110 66h31v8h-31z"/><path class="device" d="M124 74v15"/><path class="arrow-line" d="M39 116h33m-33 0 7-5m-7 5 7 5m142-5h-34m34 0-7-5m7 5-7 5"/><text x="82" y="122">adapter</text></svg><span class="visual-label">DIAGNOSTIC / ADAPTATION</span></div><div class="investigation-copy"><span class="investigation-index">08</span><h3>Diagnostic et résolution de chantier</h3><p>Analyser un imprévu géotechnique et proposer rapidement des adaptations documentées pour la suite des travaux.</p></div></article>
         </div>
         <p class="small-note">Schémas pédagogiques non contractuels. Les équipements, les profondeurs et le programme des reconnaissances sont définis pour chaque mission.</p>
       </div>
@@ -304,15 +309,13 @@
     <section class="section gallery-section" aria-labelledby="gallery-title">
       <div class="container">
         <div class="section-heading heading-split"><div><p class="eyebrow">05 — Nos chantiers · regards de terrain</p><h2 id="gallery-title">Le sol, en conditions réelles.</h2></div><p>Quelques photographies des contextes d’intervention et des moyens de reconnaissance.</p></div>
- <div class="gallery-grid">
- <figure><div class="gallery-image"><img src="assets/images/Image_linkedin_2.png" alt="chantier brumeux" loading="lazy"></div><figcaption><strong>Chantier brumeux</strong><span>Reconnaissance dans un contexte de construction dense</span></figcaption></figure>
- <figure><div class="gallery-image"><img src="assets/images/GRUTAGE_3.jpg" alt="Grutage de matériel de forage sur un chantier" loading="lazy"></div><figcaption><strong>Grutage</strong><span>Transport et mise en place du matériel sur chantier</span></figcaption></figure>
- <figure><div class="gallery-image"><img src="assets/images/chantier_eau_port.png" alt="Machine de forage sur une plateforme au-dessus de l’eau en environnement portuaire" loading="lazy"></div><figcaption><strong>Forage en zone portuaire</strong><span>Intervention au-dessus de l’eau avec accès spécifique</span></figcaption></figure>
- <figure><div class="gallery-image"><img src="assets/images/Image_LinkedIn_1.png" alt="Forage géotechnique sur un terrain naturel" loading="lazy"></div><figcaption><strong>Terrain naturel</strong><span>Investigation en site ouvert pour caractériser le sol</span></figcaption></figure>
- 
- </div>
- <div class="gallery-more"><p>Ces quelques vues donnent un aperçu de nos interventions.</p><a class="text-link" href="expertises-geotechniques/#chantiers">Voir tous nos chantiers <span aria-hidden="true">↗</span></a></div>
-      </div>
+  <div class="gallery-grid">
+  <figure class="gallery-featured"><div class="gallery-image"><img src="assets/images/Image_LinkedIn_1.png" alt="Forage géotechnique sur un terrain naturel" loading="lazy"></div><figcaption><strong>Terrain naturel</strong><span>Investigation en site ouvert pour caractériser le sol</span></figcaption></figure>
+  <figure class="gallery-featured"><div class="gallery-image"><img src="assets/images/site_indus_1.jpg" alt="Chantier industriel" loading="lazy"></div><figcaption><strong>Chantier industriel</strong><span>Intervention sur un site en activité</span></figcaption></figure>
+  <figure class="gallery-featured"><div class="gallery-image"><img src="assets/images/pompage.jpg" alt="Essai de pompage" loading="lazy"></div><figcaption><strong>Essai de pompage</strong><span>Étude de la perméabilité du sol et de la réactivité de la nappe phréatique</span></figcaption></figure>
+  <figure class="gallery-featured"><div class="gallery-image"><img src="assets/images/RF.jpg" alt="Reconnaissance de fondations" loading="lazy"></div><figcaption><strong>Reconnaissance de fondations</strong><span>Étude des conditions de mise en place des fondations</span></figcaption></figure>
+  <a class="gallery-discover" href="expertises-geotechniques/#chantiers"><span class="gallery-discover-image" aria-hidden="true"></span><span class="gallery-discover-content"><small>PORTFOLIO TERRAIN</small><strong>Voir les autres chantiers</strong><span>Forages, digues, reprises en sous-œuvre et interventions de nuit <b aria-hidden="true">↗</b></span></span></a>
+  </div>
     </section>
 
     
@@ -323,9 +326,9 @@
           <p class="eyebrow">06 — Références techniques</p>
           <h2>Nos preuves de rigueur<br></h2>
         <div class="reference-grid">
-          <article class="reference-card"><span class="reference-number">A / NORME</span><h3>NF P 94-500</h3><p>Définit la classification et l'enchaînement des missions d'ingénierie géotechnique, de l'étude préalable au diagnostic. La lettre G seule ne suffit pas : objectifs, phase et limites doivent être précisés.</p><a href="missions-geotechniques/">Lire plus sur la norme <span>↗</span></a></article>
-          <article class="reference-card"><span class="reference-number">B / CALCUL</span><h3>Eurocode 7</h3><p>Cadre européen pour le calcul géotechnique, à articuler avec les annexes nationales, les règles applicables au projet et les autres normes pertinentes.</p></article>
-          <article class="reference-card"><span class="reference-number">C / DONNÉES OUVERTES</span><h3>BRGM & données publiques</h3><p>Infoterre, la Banque du sous-sol (BSS), Géorisques ou encore cartes.gouv aident à documenter un contexte. Leur contenu est indicatif et ne caractérise pas à lui seul une parcelle.</p><a href="https://infoterre.brgm.fr/" target="_blank" rel="noopener noreferrer">Infoterre · BRGM <span>↗</span></a><a href="https://www.georisques.gouv.fr/" target="_blank" rel="noopener noreferrer">Géorisques <span>↗</span></a><a href="https://cartes.gouv.fr/" target="_blank" rel="noopener noreferrer">cartes.gouv.fr <span>↗</span></a></article>
+          <article class="reference-card"><span class="reference-number">A / NORME</span><h3>NF P 94-500</h3><p>Définit la classification et l'enchaînement des missions d'ingénierie géotechnique, de l'étude préalable au diagnostic. Cette norme offre un cadre méthodologique garantissant des études structurées, cohérentes et adaptées aux enjeux de chaque projet.</p><a href="missions-geotechniques/">Lire plus sur la norme <span>↗</span></a></article>
+          <article class="reference-card"><span class="reference-number">B / CALCUL</span><h3>Eurocode 7</h3><p>Nos études s'appuient sur les principes de justification de l'Eurocode 7 (NF EN 1997-1) et sur les normes françaises d'application associées, afin de garantir des méthodes de calcul cohérentes et conformes au cadre normatif en vigueur.</p></article>
+          <article class="reference-card"><span class="reference-number">C / DONNÉES OUVERTES</span><h3>BRGM & données publiques</h3><p>L'exploitation de données ouvertes issues de sources institutionnelles (InfoTerre, Géorisques, Cartes.gouv) permet d'appuyer nos analyses sur des données traçables, documentées et régulièrement vérifiées.</p><a href="https://infoterre.brgm.fr/" target="_blank" rel="noopener noreferrer">Infoterre · BRGM <span>↗</span></a><a href="https://www.georisques.gouv.fr/" target="_blank" rel="noopener noreferrer">Géorisques <span>↗</span></a><a href="https://cartes.gouv.fr/" target="_blank" rel="noopener noreferrer">Cartes.gouv.fr <span>↗</span></a></article>
           <article class="reference-card"><span class="reference-number">D / ASSURANCES PROFESSIONNELLES</span><h3>Assurances RC & décennale</h3><p>Les assurances de responsabilité civile professionnelle (RC) et décennale protègent le client face aux conséquences d'une erreur ou d'un défaut de conception. Elles permettent de maîtriser les risques et la capacité à couvrir les conséquences d'une mission d'ingénierie.</p></article>
           <article class="reference-card"><span class="reference-number">E / NOS CLIENTS</span><h3>Retours vérifiés</h3><p>GEOTERRIA travaille avec des clients de longue date et accompagne des acteurs reconnus pour leur expertise, des professionnels, des particuliers ainsi que des collectivités et communautés de communes.</p></article>
           <img class="opqibi-logo" src="assets/images/OPQIBI.png" alt="Logo OPQIBI" loading="lazy">
@@ -335,14 +338,16 @@
 
     <section class="section faq-section" id="faq">
       <div class="container faq-layout"><div class="faq-intro"><p class="eyebrow">07 — Questions fréquentes</p><h2>Des réponses<br>pour avancer.</h2></div><div class="faq-list">
-         <details><summary>Une étude de sol est-elle obligatoire pour vendre un terrain ?<span>+</span></summary><p>Dans les zones concernées par le retrait-gonflement des argiles, la loi ELAN prévoit une étude géotechnique préalable pour la vente de certains terrains constructibles non bâtis. L’obligation varie selon le zonage, la nature du bien et les textes applicables : vérifiez la situation exacte sur Géorisques et auprès des interlocuteurs compétents. <a href="loi-elan/">Lire le guide sur la loi ELAN</a>.</p></details>
-         <details><summary>Quelle différence entre une G1 et une G2 ?<span>+</span></summary><p>Une G1 étudie les principes généraux d’adaptation d’un site. Une G2 porte sur un projet défini et accompagne sa conception géotechnique à différentes phases. Elles ne sont pas interchangeables et leur contenu doit être adapté à l’opération. <a href="missions-geotechniques/">Voir le détail des missions G1 à G5</a>.</p></details>
+         <details><summary>Une étude de sol est-elle obligatoire pour vendre un terrain ?<span>+</span></summary><p>Dans les zones d’exposition moyenne ou forte au retrait-gonflement des argiles, la vente d’un terrain constructible non bâti peut être soumise à la fourniture d’une étude géotechnique préalable par le vendeur. La G1 renseigne sur le site et les principes généraux d’adaptation au sol, sans dimensionner les fondations d’un projet défini. <a href="loi-elan/">Lire le guide sur la loi ELAN</a>.</p></details>
+         <details><summary>Quelle différence entre une G1 et une G2 ?<span>+</span></summary><p>La G1 intervient en amont : étude de site (G1 ES) et principes généraux de construction (G1 PGC). La G2 s’applique à un projet défini et accompagne sa conception, de l’AVP au PRO puis au DCE/ACT selon le besoin. La G1 et la G2 sont complémentaires. <a href="missions-geotechniques/">Voir le détail des missions G1 à G5</a>.</p></details>
          <details><summary>Mon terrain présente-t-il un problème d’eau ?<span>+</span></summary><p>Nappe proche, ruissellement, source, infiltration lente ou humidité persistante peuvent nécessiter une analyse du fonctionnement de l’eau sur le site. Une étude hydrogéologique aide à comprendre les circulations et leurs effets sur le projet. <a href="expertises-geotechniques/#hydrogeologie">Découvrir notre expertise en hydrogéologie</a>.</p></details>
-         <details><summary>Quels essais permettent d’étudier l’eau souterraine ?<span>+</span></summary><p>Selon la question posée, les investigations peuvent comprendre un suivi piézométrique, des essais de perméabilité ou un essai de pompage. Le programme est défini selon le terrain, le projet et les accès. <a href="expertises-geotechniques/#hydrogeologie">Voir les investigations hydrogéologiques</a>.</p></details>
+         <details><summary>Quels essais permettent d’étudier l’eau souterraine ?<span>+</span></summary><p>Selon la question posée, les investigations peuvent comprendre un suivi piézométrique, un essai de pompage ou un essai de perméabilité de type Lefranc, Nasberg ou Porchet. Le programme dépend du terrain, du projet et des accès. <a href="expertises-geotechniques/#hydrogeologie">Voir les investigations hydrogéologiques</a>.</p></details>
          <details><summary>Combien coûte une étude et quels sont les délais moyens ?<span>+</span></summary><p>Il n’existe pas de tarif ni de délai universel : surface, accès, géologie, programme d’investigations et complexité influent sur les deux. Après examen des éléments disponibles, un devis précise le périmètre et le calendrier proposés. <a href="#contact">Décrire votre projet pour obtenir un premier échange</a>.</p></details>
-         <details><summary>Comment se déroulent les sondages sur place ?<span>+</span></summary><p>Les investigations sont préparées selon l’accès, les réseaux, la sécurité et le programme prévu. Les équipements varient selon le site et les essais retenus ; bruit et marques ponctuelles peuvent être à prévoir. Les modalités de remise en état sont à préciser dans le devis. <a href="expertises-geotechniques/#sondages">Découvrir les sondages et forages</a>.</p></details>
+         <details><summary>Comment se déroulent les sondages et prélèvements ?<span>+</span></summary><p>Les investigations sont préparées selon l’accès, les réseaux, la sécurité et le programme prévu. Elles peuvent comprendre des sondages destructifs, carottés ou à la tarière, des fouilles, des essais in situ et des prélèvements de sols ou d’eau. Les modalités de remise en état sont précisées dans le devis. <a href="expertises-geotechniques/#sondages">Découvrir les sondages et forages</a>.</p></details>
          <details><summary>Des fissures sont apparues après une sécheresse : que faire ?<span>+</span></summary><p>Documentez leur emplacement et leur évolution et sollicitez un avis adapté. Un diagnostic géotechnique peut explorer le rôle du sol et de l’eau, mais ne remplace pas l’examen structurel, les démarches auprès de l’assureur ou le diagnostic d’un expert. <a href="missions-geotechniques/#g5">Voir la mission de diagnostic G5</a>.</p></details>
-         <details><summary>Réalisez-vous les travaux de fondations ou de terrassement ?<span>+</span></summary><p>Non. GEOTERRIA est un bureau d’études : nous étudions le sol et formulons des recommandations, mais ne réalisons ni les travaux de fondations ni ceux de terrassement. Cette indépendance distingue le conseil technique de l’entreprise chargée des travaux.</p></details>
+         <details><summary>Réalisez-vous les travaux de fondations ou de terrassement ?<span>+</span></summary><p>Non. GEOTERRIA est un bureau d’études indépendant : nous étudions le sol, définissons les recommandations et pouvons accompagner les phases d’exécution selon la mission, mais nous ne réalisons pas les travaux de fondations ni de terrassement.</p></details>
+         <details><summary>Que couvrent les missions G3 et G4 pendant les travaux ?<span>+</span></summary><p>La G3 correspond à l’étude et au suivi géotechniques d’exécution. La G4 correspond à la supervision géotechnique d’exécution pour le maître d’ouvrage. Elles vérifient la cohérence des études et des conditions rencontrées avec les objectifs du projet. <a href="missions-geotechniques/#g3g4">Voir les missions G3 et G4</a>.</p></details>
+         <details><summary>Comment étudier un ancien site industriel ou des remblais ?<span>+</span></summary><p>Une démarche sites et sols pollués (SSP) commence par l’historique et les sources potentielles, puis adapte les prélèvements et analyses aux sols, aux eaux souterraines et, si nécessaire, aux gaz du sol. Les analyses peuvent rechercher des hydrocarbures, BTEX, métaux ou composés volatils. <a href="expertises-geotechniques/#ssp">Voir l’expertise SSP</a>.</p></details>
       </div></div>
     </section>
 
@@ -382,7 +387,7 @@
       <div class="footer-nav">
         <span>Explorer</span>
         <a href="loi-elan/">Loi ELAN & étude G1</a>
-        <a href="expertises-geotechniques/">Expertises géotechniques</a>
+        <a href="expertises-geotechniques/">Nos expertises</a>
         <a href="missions-geotechniques/">Missions G1 à G5</a>
       </div>
       <div class="footer-nav">
